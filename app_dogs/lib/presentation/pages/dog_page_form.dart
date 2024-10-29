@@ -1,4 +1,6 @@
 import 'package:app_dogs/data/models/dog_model.dart';
+import 'package:app_dogs/data/repositories/dog_repository.dart';
+import 'package:app_dogs/presentation/viewmodels/dog_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -13,6 +15,7 @@ class _DogPageFormState extends State<DogPageForm> {
   final _formkey = GlobalKey<FormState>();
   final nomeController = TextEditingController();
   final idadeController = TextEditingController();
+  final DogViewmodel _viewModel = DogViewmodel(DogRepository());
 
   Future<void> saveDog() async {
     if (_formkey.currentState!.validate()) {
@@ -20,7 +23,8 @@ class _DogPageFormState extends State<DogPageForm> {
         name: nomeController.text,
         age: int.parse(idadeController.text),
       );
-      print(dog.toMap());
+      await _viewModel.addDog(dog);
+      //print(dog.toMap());
     }
   }
 
