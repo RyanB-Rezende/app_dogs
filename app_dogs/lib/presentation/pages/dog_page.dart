@@ -27,6 +27,7 @@ class _DogPageState extends State<DogPage> {
     }
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
