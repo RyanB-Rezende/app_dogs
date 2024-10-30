@@ -15,7 +15,7 @@ class _DogPageFormState extends State<DogPageForm> {
   final _formkey = GlobalKey<FormState>();
   final nomeController = TextEditingController();
   final idadeController = TextEditingController();
-  final DogViewmodel _viewModel = DogViewmodel(DogRepository());
+  final DogViewModel _viewModel = DogViewModel(DogRepository());
 
   Future<void> saveDog() async {
     if (_formkey.currentState!.validate()) {

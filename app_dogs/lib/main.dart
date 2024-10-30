@@ -1,7 +1,6 @@
 import 'dart:io';
-import 'package:app_dogs/presentation/pages/dog_page_form.dart';
+import 'package:app_dogs/presentation/pages/dog_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
 void main() async {
@@ -19,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: DogPageForm(),
+      home: DogPage(),
     );
   }
 }
