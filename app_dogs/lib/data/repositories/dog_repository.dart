@@ -1,6 +1,6 @@
-import 'package:app_dogs/core/database_helper.dart';
-import 'package:app_dogs/data/models/dog_model.dart';
-import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+import 'package:sqflite/sqflite.dart';
+import '../../core/database_helper.dart';
+import '../models/dog_model.dart';
 
 class DogRepository {
   Future<void> insertDog(Dog dog) async {
@@ -21,5 +21,24 @@ class DogRepository {
           name: map['name'] as String,
           age: map['age'] as int);
     }).toList();
+  }
+
+  Future<void> updateDog(Dog dog) async {
+    final db = await DatabaseHelper.initDb();
+    await db.update(
+      'dogs',
+      dog.toMap(),
+      where: 'id = ?',
+      whereArgs: [dog.id],
+    );
+  }
+
+  Future<void> deleteDog(int id) async {
+    final db = await DatabaseHelper.initDb();
+    await db.delete(
+      'dogs',
+      where: 'id = ?',
+      whereArgs: [id],
+    );
   }
 }

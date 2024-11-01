@@ -1,8 +1,8 @@
-import 'package:app_dogs/data/models/dog_model.dart';
-import 'package:app_dogs/data/repositories/dog_repository.dart';
-import 'package:app_dogs/presentation/viewmodels/dog_viewmodel.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
+import '../../data/models/dog_model.dart';
+import '../../data/repositories/dog_repository.dart';
+import '../viewmodels/dog_viewmodel.dart';
 
 class DogPageForm extends StatefulWidget {
   const DogPageForm({super.key});
@@ -12,19 +12,26 @@ class DogPageForm extends StatefulWidget {
 }
 
 class _DogPageFormState extends State<DogPageForm> {
-  final _formkey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
   final nomeController = TextEditingController();
   final idadeController = TextEditingController();
   final DogViewModel _viewModel = DogViewModel(DogRepository());
 
   Future<void> saveDog() async {
-    if (_formkey.currentState!.validate()) {
+    if (_formKey.currentState!.validate()) {
       final dog = Dog(
         name: nomeController.text,
         age: int.parse(idadeController.text),
       );
+      // print(dog.toMap());
       await _viewModel.addDog(dog);
-      //print(dog.toMap());
+
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Dog Adicionado Com Sucesso!')),
+        );
+        Navigator.pop(context);
+      }
     }
   }
 
@@ -33,7 +40,7 @@ class _DogPageFormState extends State<DogPageForm> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Cadastro de Dogs'),
-        backgroundColor: Colors.pinkAccent,
+        backgroundColor: Colors.teal,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -44,7 +51,7 @@ class _DogPageFormState extends State<DogPageForm> {
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Form(
-                    key: _formkey,
+                    key: _formKey,
                     child: Column(
                       children: [
                         const Text(
@@ -52,18 +59,19 @@ class _DogPageFormState extends State<DogPageForm> {
                           style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
-                            color: Colors.black,
+                            color: Colors.teal,
                           ),
                         ),
-                        const SizedBox(height: 16),
+                        const SizedBox(height: 20),
                         TextFormField(
                           controller: nomeController,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             labelText: 'Nome',
-                            labelStyle: TextStyle(color: Colors.black),
-                            border: OutlineInputBorder(),
+                            labelStyle: TextStyle(color: Colors.teal.shade700),
+                            border: const OutlineInputBorder(),
                             focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black45),
+                              borderSide:
+                                  BorderSide(color: Colors.teal.shade700),
                             ),
                           ),
                           validator: (value) {
@@ -76,30 +84,31 @@ class _DogPageFormState extends State<DogPageForm> {
                         const SizedBox(height: 16),
                         TextFormField(
                           controller: idadeController,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             labelText: 'Idade',
-                            labelStyle: TextStyle(color: Colors.black),
-                            border: OutlineInputBorder(),
+                            labelStyle: TextStyle(color: Colors.teal.shade700),
+                            border: const OutlineInputBorder(),
                             focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.black45),
+                              borderSide:
+                                  BorderSide(color: Colors.teal.shade700),
                             ),
                           ),
                           keyboardType: TextInputType.number,
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return 'Por favor entre com uma idade';
+                              return 'Por favor entre com a idade';
                             }
                             if (int.tryParse(value) == null) {
-                              return 'Por favor entre com numeros validos';
+                              return 'Por favor entre com um número válido';
                             }
                             return null;
                           },
                         ),
-                        const SizedBox(height: 16),
+                        const SizedBox(height: 30),
                         ElevatedButton.icon(
                           onPressed: saveDog,
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.blueAccent,
+                            backgroundColor: Colors.teal,
                             padding: const EdgeInsets.symmetric(
                               vertical: 15.0,
                               horizontal: 30.0,

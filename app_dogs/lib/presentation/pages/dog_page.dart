@@ -1,18 +1,21 @@
-import 'package:app_dogs/data/models/dog_model.dart';
-import 'package:app_dogs/data/repositories/dog_repository.dart';
-import 'package:app_dogs/presentation/viewmodels/dog_viewmodel.dart';
+import 'package:app_dogs/presentation/pages/dog_edit_page.dart';
+import 'package:app_dogs/presentation/pages/dog_page_form.dart';
 import 'package:flutter/material.dart';
+import '../../data/models/dog_model.dart';
+import '../../data/repositories/dog_repository.dart';
+import '../viewmodels/dog_viewmodel.dart';
 
 class DogPage extends StatefulWidget {
   const DogPage({super.key});
 
   @override
-  State<DogPage> createState() => _DogPageState();
+  DogPageState createState() => DogPageState();
 }
 
-class _DogPageState extends State<DogPage> {
+class DogPageState extends State<DogPage> {
   List<Dog> _dogs = [];
   final DogViewModel _viewModel = DogViewModel(DogRepository());
+  Dog? _lastDeleteDog;
 
   @override
   void initState() {
@@ -27,33 +30,70 @@ class _DogPageState extends State<DogPage> {
     }
   }
 
+  Future<void> _deleteDog(Dog dog) async {
+    await _viewModel.deleteDog(dog.id!);
+    _lastDeleteDog = dog;
+
+    final snackBar = SnackBar(
+      content: Text('${dog.name} deletado!'),
+      action: SnackBarAction(
+        label: 'Desfazer',
+        onPressed: () {
+          if (_lastDeleteDog != null && mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+              content: Text('Desfeita a Exclusão de ${_lastDeleteDog!.name}'),
+            ));
+            _viewModel.addDog(_lastDeleteDog!);
+            setState(() {
+              _dogs.add(_lastDeleteDog!);
+              _lastDeleteDog = null;
+            });
+          }
+        },
+      ),
+    );
+
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    }
+    await _loadDogs();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Lista de Dogs'),
-        backgroundColor: Colors.teal,
+        backgroundColor: Colors.teal, // Alterando a cor da AppBar
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: _dogs.isEmpty
-            ? const Center(child: Text('Nenhum Dog Disponivel.'))
+            ? const Center(child: Text('Nenhum dog disponível.'))
             : ListView.builder(
                 itemCount: _dogs.length,
                 itemBuilder: (context, index) {
                   final dog = _dogs[index];
                   return Card(
-                    elevation: 5,
+                    elevation: 5, // Sombra para o card
                     margin: const EdgeInsets.symmetric(vertical: 8),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
+                      borderRadius:
+                          BorderRadius.circular(15), // Bordas arredondadas
                     ),
                     child: ListTile(
                       leading: CircleAvatar(
-                        backgroundColor: Colors.teal,
+                        backgroundColor: Colors.teal.shade300,
                         child: Text(
-                          dog.name[0],
+                          dog.name[0], // Primeira letra do nome
                           style: const TextStyle(color: Colors.white),
+                        ),
+                      ),
+                      title: Text(
+                        dog.name,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
                         ),
                       ),
                       subtitle: Text('Idade: ${dog.age}'),
@@ -62,11 +102,20 @@ class _DogPageState extends State<DogPage> {
                         children: [
                           IconButton(
                             icon: const Icon(Icons.edit, color: Colors.orange),
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        DogEditPage(dog: dog)),
+                              );
+                            },
                           ),
                           IconButton(
                             icon: const Icon(Icons.delete, color: Colors.red),
-                            onPressed: () {},
+                            onPressed: () {
+                              _deleteDog(dog);
+                            },
                           ),
                         ],
                       ),
@@ -76,7 +125,12 @@ class _DogPageState extends State<DogPage> {
               ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const DogPageForm()),
+          ).then((_) => _loadDogs());
+        },
         backgroundColor: Colors.teal,
         tooltip: 'Adicionar Dog',
         child: const Icon(Icons.add, size: 30),
