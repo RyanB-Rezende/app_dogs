@@ -106,9 +106,9 @@ class DogPageState extends State<DogPage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        DogEditPage(dog: dog)),
-                              );
+                                  builder: (context) => DogEditPage(dog: dog),
+                                ),
+                              ).then((_) => _loadDogs());
                             },
                           ),
                           IconButton(

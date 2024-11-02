@@ -122,7 +122,7 @@ class DogEditPageState extends State<DogEditPage> {
                       ),
                       const SizedBox(height: 30),
                       ElevatedButton.icon(
-                        onPressed: () {},
+                        onPressed: _updateDog,
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.teal,
                           padding: const EdgeInsets.symmetric(

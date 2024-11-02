@@ -6,8 +6,10 @@ class DatabaseHelper {
     return openDatabase(
       join(await getDatabasesPath(), 'doggie_database.db'),
       onCreate: (db, version) {
-        return db.execute(
+        db.execute(
             'CREATE TABLE dogs(id INTEGER PRIMARY KEY, name TEXT, age INTEGER)');
+        return db.execute(
+            'CREATE TABLE pessoas(id INTEGER PRIMARY KEY, nome TEXT, telefone TEXT, email TEXT, endereco TEXT)');
       },
       version: 1,
     );
