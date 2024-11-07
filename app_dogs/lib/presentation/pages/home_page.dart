@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dog_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -7,18 +8,19 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Gestão De Pets e Clientes.'),
+        title: const Text('Gestão de Pets e Clientes'),
         backgroundColor: Colors.teal,
       ),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            const DrawerHeader(
+            // Cabeçalho do Drawer
+            DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.teal,
+                color: Colors.teal.shade300,
               ),
-              child: Column(
+              child: const Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CircleAvatar(
@@ -27,20 +29,33 @@ class HomePage extends StatelessWidget {
                   ),
                   SizedBox(height: 10),
                   Text(
-                    'Bem-Vindo',
+                    'Bem-vindo!',
                     style: TextStyle(color: Colors.white, fontSize: 20),
                   ),
                 ],
               ),
             ),
+            // Menu para a página de Dogs
             ListTile(
               leading: const Icon(Icons.pets, color: Colors.teal),
               title: const Text('Dogs'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const DogPage()),
+                );
+              },
+            ),
+            // Menu para a página de Clientes
+            ListTile(
+              leading: const Icon(Icons.people, color: Colors.teal),
+              title: const Text('Clientes'),
               onTap: () {},
             ),
           ],
         ),
       ),
+      body: const Center(child: Text('Home page')),
     );
   }
 }

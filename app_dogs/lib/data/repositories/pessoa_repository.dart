@@ -17,11 +17,15 @@ class PessoaRepository {
     final List<Map<String, Object?>> pessoaMaps = await db.query('pessoas');
     return pessoaMaps.map((map) {
       return Pessoa(
-          id: map['id'] as int,
-          nome: map['nome'] as String,
+          id: map['id'] as int?,
+          nome: map['name'] as String,
           telefone: map['telefone'] as String,
           email: map['email'] as String,
-          endereco: map['endereco'] as String);
+          enderecoAvRua: map['enderecoAvRua'] as String,
+          enderecoCep: map['enderecoCep'] as String,
+          enderecoCidade: map['enderecoCidade'] as String,
+          enderecoEstado: map['enderecoEstado'] as String,
+          enderecoNumero: map['enderecoNumero'] as String);
     }).toList();
   }
 
