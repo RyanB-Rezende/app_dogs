@@ -1,5 +1,5 @@
 import 'package:app_dogs/core/database_helper.dart';
-import 'package:app_dogs/data/models/pessoa_model.dart';
+import 'package:app_dogs/data/models/PessoaModel/pessoa_model.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
 class PessoaRepository {

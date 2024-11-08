@@ -1,5 +1,5 @@
-import 'package:app_dogs/data/models/pessoa_model.dart';
-import 'package:app_dogs/data/repositories/pessoa_repository.dart';
+import 'package:app_dogs/data/models/PessoaModel/pessoa_model.dart';
+import 'package:app_dogs/data/repositories/PessoaRepositories/pessoa_repository.dart';
 
 class PessoaViewModel {
   final PessoaRepository repository;

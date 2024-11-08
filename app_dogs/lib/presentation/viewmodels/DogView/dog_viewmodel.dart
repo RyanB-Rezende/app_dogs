@@ -1,5 +1,5 @@
-import '../../data/models/dog_model.dart';
-import '../../data/repositories/dog_repository.dart';
+import '../../../data/models/DogModel/dog_model.dart';
+import '../../../data/repositories/DogRepositories/dog_repository.dart';
 
 class DogViewModel {
   final DogRepository repository;

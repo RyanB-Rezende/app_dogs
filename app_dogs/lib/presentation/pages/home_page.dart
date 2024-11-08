@@ -1,5 +1,6 @@
+import 'package:app_dogs/presentation/pages/DogPages/dog_page.dart';
+import 'package:app_dogs/presentation/pages/PessoaPage/pessoa_page.dart';
 import 'package:flutter/material.dart';
-import 'dog_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -9,18 +10,18 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Gestão de Pets e Clientes'),
-        backgroundColor: Colors.teal,
+        backgroundColor: const Color.fromARGB(255, 25, 150, 250),
       ),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
             // Cabeçalho do Drawer
-            DrawerHeader(
+            const DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.teal.shade300,
+                color: Color.fromARGB(255, 25, 150, 250),
               ),
-              child: const Column(
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CircleAvatar(
@@ -37,7 +38,8 @@ class HomePage extends StatelessWidget {
             ),
             // Menu para a página de Dogs
             ListTile(
-              leading: const Icon(Icons.pets, color: Colors.teal),
+              leading:
+                  const Icon(Icons.pets, color: Color.fromARGB(255, 0, 0, 0)),
               title: const Text('Dogs'),
               onTap: () {
                 Navigator.push(
@@ -48,9 +50,15 @@ class HomePage extends StatelessWidget {
             ),
             // Menu para a página de Clientes
             ListTile(
-              leading: const Icon(Icons.people, color: Colors.teal),
+              leading:
+                  const Icon(Icons.people, color: Color.fromARGB(255, 0, 0, 0)),
               title: const Text('Clientes'),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const PessoaPage()));
+              },
             ),
           ],
         ),

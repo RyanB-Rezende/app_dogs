@@ -1,6 +1,6 @@
 import 'package:sqflite/sqflite.dart';
-import '../../core/database_helper.dart';
-import '../models/dog_model.dart';
+import '../../../core/database_helper.dart';
+import '../../models/DogModel/dog_model.dart';
 
 class DogRepository {
   Future<void> insertDog(Dog dog) async {

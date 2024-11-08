@@ -1,7 +1,7 @@
-import 'package:app_dogs/data/models/pessoa_model.dart';
-import 'package:app_dogs/data/repositories/pessoa_repository.dart';
-import 'package:app_dogs/presentation/pages/pessoa_page_form.dart';
-import 'package:app_dogs/presentation/viewmodels/pessoa_viewmodel.dart';
+import 'package:app_dogs/data/models/PessoaModel/pessoa_model.dart';
+import 'package:app_dogs/data/repositories/PessoaRepositories/pessoa_repository.dart';
+import 'package:app_dogs/presentation/pages/PessoaPage/pessoa_page_form.dart';
+import 'package:app_dogs/presentation/viewmodels/PessoaView/pessoa_viewmodel.dart';
 import 'package:flutter/material.dart';
 
 class PessoaPage extends StatefulWidget {
@@ -113,7 +113,7 @@ class PessoaPageState extends State<PessoaPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Lista de Pessoas'),
-        backgroundColor: const Color.fromARGB(255, 255, 87, 227),
+        backgroundColor: const Color.fromARGB(255, 25, 150, 250),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
