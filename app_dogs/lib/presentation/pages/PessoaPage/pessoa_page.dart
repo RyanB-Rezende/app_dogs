@@ -83,7 +83,27 @@ class PessoaPageState extends State<PessoaPage> {
           pessoa.nome,
           style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
         ),
-        subtitle: Text('Telefone: ${pessoa.telefone}'),
+        subtitle: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('Telefone: ${cliente.telefone ?? "N/A"}'),
+            TextButton(onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) =>
+                  //PessoaDetailsPage(Pessoa: cliente),
+                ),
+              );
+            },
+             child: const Text(
+              'Mais Detalhes',
+              style: TextStyle(
+                color: Color.fromARGB(255, 25, 150, 250),
+                fontWeight: FontWeight.bold),
+             ),
+             ),
+          ],
+        ),
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
