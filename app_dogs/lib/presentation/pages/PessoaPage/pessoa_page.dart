@@ -1,8 +1,11 @@
 import 'package:app_dogs/data/models/PessoaModel/pessoa_model.dart';
 import 'package:app_dogs/data/repositories/PessoaRepositories/pessoa_repository.dart';
+import 'package:app_dogs/presentation/pages/PessoaPage/pessoa_detail_page.dart';
 import 'package:app_dogs/presentation/pages/PessoaPage/pessoa_page_form.dart';
+import 'package:app_dogs/presentation/pages/PessoaPage/widgets/detail_row_widgets.dart';
 import 'package:app_dogs/presentation/viewmodels/PessoaView/pessoa_viewmodel.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class PessoaPage extends StatefulWidget {
   const PessoaPage({super.key});
@@ -86,22 +89,22 @@ class PessoaPageState extends State<PessoaPage> {
         subtitle: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Telefone: ${cliente.telefone ?? "N/A"}'),
-            TextButton(onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) =>
-                  //PessoaDetailsPage(Pessoa: cliente),
-                ),
-              );
-            },
-             child: const Text(
-              'Mais Detalhes',
-              style: TextStyle(
-                color: Color.fromARGB(255, 25, 150, 250),
-                fontWeight: FontWeight.bold),
-             ),
-             ),
+            Text('Telefone: ${pessoa.telefone}'),
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => PessoaDetailPage(pessoa: pessoa)),
+                );
+              },
+              child: const Text(
+                'Mais Detalhes',
+                style: TextStyle(
+                    color: Color.fromARGB(255, 25, 150, 250),
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
           ],
         ),
         trailing: Row(

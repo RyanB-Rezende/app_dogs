@@ -9,7 +9,7 @@ class DatabaseHelper {
         db.execute(
             'CREATE TABLE dogs(id INTEGER PRIMARY KEY, name TEXT, age INTEGER)');
         return db.execute(
-            'CREATE TABLE pessoas(id INTEGER PRIMARY KEY, nome TEXT, telefone TEXT, email TEXT, endereco TEXT)');
+            'CREATE TABLE pessoas(id INTEGER PRIMARY KEY, nome TEXT NOT NULL, telefone TEXT, email TEXT, enderecoAvRua TEXT, enderecoNumero TEXT, enderecoCep TEXT, enderecoCidade TEXT, enderecoEstado TEXT );');
       },
       version: 1,
     );
