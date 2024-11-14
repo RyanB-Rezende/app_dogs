@@ -1,9 +1,29 @@
 import 'package:app_dogs/presentation/pages/DogPages/dog_page.dart';
 import 'package:app_dogs/presentation/pages/PessoaPage/pessoa_page.dart';
+import 'package:app_dogs/presentation/pages/main_home_page.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int _selectedIndex = 0;
+
+  final List<Widget> _pages = [
+    const MainHomePage(),
+    const DogPage(),
+    const PessoaPage(),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +83,7 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-      body: const Center(child: Text('Home page')),
+      body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(
