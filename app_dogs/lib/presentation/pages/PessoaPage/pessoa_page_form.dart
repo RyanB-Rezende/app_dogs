@@ -146,7 +146,7 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
                           TextFormField(
                             controller: telefoneController,
                             decoration: const InputDecoration(
-                              labelText: 'telefone',
+                              labelText: 'Telefone',
                               labelStyle: TextStyle(
                                   color: Color.fromARGB(255, 0, 0, 0)),
                               border: OutlineInputBorder(),
@@ -162,6 +162,26 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
                               }
                               if (int.tryParse(value) == null) {
                                 return 'Por favor entre com um número válido';
+                              }
+                              return null;
+                            },
+                          ),
+                          const SizedBox(height: 20),
+                          TextFormField(
+                            controller: emailController,
+                            decoration: const InputDecoration(
+                              labelText: 'Email',
+                              labelStyle: TextStyle(
+                                  color: Color.fromARGB(255, 0, 0, 0)),
+                              border: OutlineInputBorder(),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Color.fromARGB(255, 0, 0, 0)),
+                              ),
+                            ),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Por favor entre com um E-mail';
                               }
                               return null;
                             },
