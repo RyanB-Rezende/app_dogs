@@ -64,6 +64,25 @@ class HomePage extends StatelessWidget {
         ),
       ),
       body: const Center(child: Text('Home page')),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "Home",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.pets),
+            label: 'Dogs',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.people),
+            label: 'Clientes',
+          ),
+        ],
+//      currentIndex: _selectedIndex,
+        selectedItemColor: Colors.cyan,
+        onTap: _onItemTapped,
+      ),
     );
   }
 }
