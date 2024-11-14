@@ -169,19 +169,22 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
                           const SizedBox(height: 20),
                           TextFormField(
                             controller: emailController,
-                            decoration: const InputDecoration(
+                            decoration: InputDecoration(
                               labelText: 'Email',
-                              labelStyle: TextStyle(
-                                  color: Color.fromARGB(255, 0, 0, 0)),
-                              border: OutlineInputBorder(),
+                              labelStyle:
+                                  TextStyle(color: Colors.teal.shade700),
+                              border: const OutlineInputBorder(),
                               focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: Color.fromARGB(255, 0, 0, 0)),
+                                borderSide:
+                                    BorderSide(color: Colors.teal.shade700),
                               ),
                             ),
                             validator: (value) {
                               if (value == null || value.isEmpty) {
-                                return 'Por favor entre com um E-mail';
+                                return 'Por favor entre com Email';
+                              }
+                              if (int.tryParse(value) == null) {
+                                return 'Por favor entre com um Email válido';
                               }
                               return null;
                             },
