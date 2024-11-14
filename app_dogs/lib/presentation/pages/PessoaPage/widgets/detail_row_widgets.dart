@@ -5,8 +5,12 @@ class DetailRowWidgets extends StatelessWidget {
   final String label;
   final String? value;
 
-  const DetailRowWidgets(
-      {super.key, required this.icon, required this.label, this.value});
+  const DetailRowWidgets({
+    super.key,
+    required this.icon,
+    required this.label,
+    this.value,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -18,18 +22,30 @@ class DetailRowWidgets extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            label,
-            style: const TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
+          Icon(icon, color: Colors.teal, size: 20),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  label,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black54,
+                  ),
+                ),
+                Text(
+                  value!,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    color: Colors.black87,
+                  ),
+                )
+              ],
             ),
-          ),
-          Text(
-            value!,
-            style: const TextStyle(fontSize: 16, color: Colors.black),
-          ),
+          )
         ],
       ),
     );

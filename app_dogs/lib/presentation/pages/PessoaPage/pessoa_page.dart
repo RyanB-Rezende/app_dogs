@@ -1,6 +1,7 @@
 import 'package:app_dogs/data/models/PessoaModel/pessoa_model.dart';
 import 'package:app_dogs/data/repositories/PessoaRepositories/pessoa_repository.dart';
 import 'package:app_dogs/presentation/pages/PessoaPage/pessoa_detail_page.dart';
+import 'package:app_dogs/presentation/pages/PessoaPage/pessoa_edit_page.dart';
 import 'package:app_dogs/presentation/pages/PessoaPage/pessoa_page_form.dart';
 import 'package:app_dogs/presentation/pages/PessoaPage/widgets/detail_row_widgets.dart';
 import 'package:app_dogs/presentation/viewmodels/PessoaView/pessoa_viewmodel.dart';
@@ -127,8 +128,10 @@ class PessoaPageState extends State<PessoaPage> {
   void _editPessoa(Pessoa pessoa) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const PessoaPage()),
-    );
+      MaterialPageRoute(
+        builder: (context) => PessoaEditPage(pessoa: pessoa),
+      ),
+    ).then((_) => _loadPessoas());
   }
 
   @override
