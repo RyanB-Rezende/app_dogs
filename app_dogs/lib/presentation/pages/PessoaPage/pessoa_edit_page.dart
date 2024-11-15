@@ -19,6 +19,7 @@ class PessoaEditPageState extends State<PessoaEditPage> {
   final _telefoneController = TextEditingController();
   final _emailController = TextEditingController();
   final _enderecoAvRuaController = TextEditingController();
+  final _bairroController = TextEditingController();
   final _enderecoNumeroController = TextEditingController();
   final _enderecoCepController = TextEditingController();
   final _enderecoCidadeController = TextEditingController();
@@ -186,6 +187,31 @@ class PessoaEditPageState extends State<PessoaEditPage> {
                           }
                           if (int.tryParse(value) == null) {
                             return 'Por favor entre com um Endereço válido';
+                          }
+                          return null;
+                        },
+                      ),
+                      const SizedBox(height: 20),
+                      TextFormField(
+                        controller: _BairroController,
+                        decoration: InputDecoration(
+                          labelText: 'Bairro',
+                          labelStyle: TextStyle(color: Colors.teal.shade700),
+                          border: const OutlineInputBorder(),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.teal.shade700),
+                          ),
+                        ),
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.digitsOnly,
+                        ],
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Por favor entre com o Número';
+                          }
+                          if (int.tryParse(value) == null) {
+                            return 'Por favor entre com um Número válido';
                           }
                           return null;
                         },

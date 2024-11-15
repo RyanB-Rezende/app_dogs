@@ -25,6 +25,7 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
   final telefoneController = TextEditingController();
   final emailController = TextEditingController();
   final enderecoAvRuaController = TextEditingController();
+  final bairroController = TextEditingController();
   final enderecoNumeroController = TextEditingController();
   final enderecoCepController = TextEditingController();
   final enderecoCidadeController = TextEditingController();
@@ -38,6 +39,7 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
         telefone: telefoneController.text,
         email: emailController.text,
         enderecoAvRua: enderecoAvRuaController.text,
+        bairro: bairroController.text,
         enderecoCep: enderecoNumeroController.text,
         enderecoNumero: enderecoNumeroController.text,
         enderecoCidade: enderecoCidadeController.text,
@@ -77,6 +79,7 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
         }
         setState(() {
           enderecoAvRuaController.text = data['logradouro'] ?? '';
+          bairroController.text = data['bairro'] ?? '';
           enderecoCidadeController.text = data['localidade'] ?? '';
           enderecoEstadoController.text = data['uf'] ?? '';
         });
@@ -158,7 +161,7 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
                             keyboardType: TextInputType.number,
                             validator: (value) {
                               if (value == null || value.isEmpty) {
-                                return 'Por favor entre com a idade';
+                                return 'Por favor entre com o telefone';
                               }
                               if (int.tryParse(value) == null) {
                                 return 'Por favor entre com um número válido';
@@ -169,14 +172,13 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
                           const SizedBox(height: 20),
                           TextFormField(
                             controller: emailController,
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               labelText: 'Email',
-                              labelStyle:
-                                  TextStyle(color: Colors.teal.shade700),
-                              border: const OutlineInputBorder(),
+                              labelStyle: TextStyle(
+                                  color: Color.fromARGB(255, 25, 150, 250)),
+                              border: OutlineInputBorder(),
                               focusedBorder: OutlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Colors.teal.shade700),
+                                borderSide: BorderSide(color: Colors.black),
                               ),
                             ),
                             validator: (value) {
@@ -211,6 +213,21 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
                             controller: enderecoAvRuaController,
                             decoration: const InputDecoration(
                               labelText: 'Avenida - Rua',
+                              labelStyle: TextStyle(
+                                  color: Color.fromARGB(255, 0, 0, 0)),
+                              border: OutlineInputBorder(),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color.fromARGB(255, 25, 150, 250),
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 16),
+                          TextFormField(
+                            controller: bairroController,
+                            decoration: const InputDecoration(
+                              labelText: 'Bairro',
                               labelStyle: TextStyle(
                                   color: Color.fromARGB(255, 0, 0, 0)),
                               border: OutlineInputBorder(),

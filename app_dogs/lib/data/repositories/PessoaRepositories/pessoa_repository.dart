@@ -22,6 +22,7 @@ class PessoaRepository {
           telefone: map['telefone'] as String,
           email: map['email'] as String,
           enderecoAvRua: map['enderecoAvRua'] as String,
+          bairro: map['bairro'] as String,
           enderecoCep: map['enderecoCep'] as String,
           enderecoCidade: map['enderecoCidade'] as String,
           enderecoEstado: map['enderecoEstado'] as String,

@@ -4,6 +4,7 @@ class Pessoa {
   final String telefone; //poder ser null
   final String email;
   final String enderecoAvRua;
+  final String bairro;
   final String enderecoNumero;
   final String enderecoCep;
   final String enderecoCidade;
@@ -15,6 +16,7 @@ class Pessoa {
       required this.telefone,
       required this.email,
       required this.enderecoAvRua,
+      required this.bairro,
       required this.enderecoNumero,
       required this.enderecoCidade,
       required this.enderecoCep,
@@ -27,6 +29,7 @@ class Pessoa {
       'telefone': telefone,
       'email': email,
       'enderecoAvRua': enderecoAvRua,
+      'bairro': bairro,
       'enderecoNumero': enderecoNumero,
       'enderecoCidade': enderecoCidade,
       'enderecoCep': enderecoCep,
