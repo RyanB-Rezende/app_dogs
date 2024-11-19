@@ -46,7 +46,7 @@ class PessoaDetailPage extends StatelessWidget {
                           icon: FontAwesomeIcons.house,
                           label: 'Endereço',
                           value:
-                              "${pessoa.enderecoAvRua},${pessoa.enderecoNumero}"),
+                              "${pessoa.enderecoAvRua}, ${pessoa.enderecoNumero}, ${pessoa.bairro}"),
                       DetailRowWidgets(
                           icon: FontAwesomeIcons.locationArrow,
                           label: 'CEP',

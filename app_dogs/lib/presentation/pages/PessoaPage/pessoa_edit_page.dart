@@ -33,6 +33,7 @@ class PessoaEditPageState extends State<PessoaEditPage> {
     _telefoneController.text = widget.pessoa.telefone;
     _emailController.text = widget.pessoa.email;
     _enderecoAvRuaController.text = widget.pessoa.enderecoAvRua;
+    _bairroController.text = widget.pessoa.bairro;
     _enderecoNumeroController.text = widget.pessoa.enderecoNumero;
     _enderecoCepController.text = widget.pessoa.enderecoCep;
     _enderecoCidadeController.text = widget.pessoa.enderecoCidade;
@@ -45,6 +46,7 @@ class PessoaEditPageState extends State<PessoaEditPage> {
     _telefoneController.dispose();
     _emailController.dispose();
     _enderecoAvRuaController.dispose();
+    _bairroController.dispose();
     _enderecoNumeroController.dispose();
     _enderecoCepController.dispose();
     _enderecoCidadeController.dispose();
@@ -60,6 +62,7 @@ class PessoaEditPageState extends State<PessoaEditPage> {
           telefone: _telefoneController.text,
           email: _emailController.text,
           enderecoAvRua: _enderecoAvRuaController.text,
+          bairro: _bairroController.text,
           enderecoNumero: _enderecoNumeroController.text,
           enderecoCep: _enderecoCepController.text,
           enderecoCidade: _enderecoCidadeController.text,
@@ -193,7 +196,7 @@ class PessoaEditPageState extends State<PessoaEditPage> {
                       ),
                       const SizedBox(height: 20),
                       TextFormField(
-                        controller: _BairroController,
+                        controller: _bairroController,
                         decoration: InputDecoration(
                           labelText: 'Bairro',
                           labelStyle: TextStyle(color: Colors.teal.shade700),
