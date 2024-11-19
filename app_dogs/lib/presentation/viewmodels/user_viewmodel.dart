@@ -15,7 +15,10 @@ class UserViewmodel {
           await db.query('pessoas', where: 'email = ?', whereArgs: [email]);
       final idPessoa = result[0]['id'] as int;
 
-      final userAlreadyExists
+      final userAlreadyExists = await repository.userExistsByIdPessoa(idPessoa);
+      if (userAlreadyExists) {
+        return 'Usuario já Esta Cadastrado';
+      }
     }
   }
 }
