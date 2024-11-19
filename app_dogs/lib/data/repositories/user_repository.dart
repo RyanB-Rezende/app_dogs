@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:app_dogs/data/models/user_model.dart';
 import 'package:crypto/crypto.dart';
 import 'package:path/path.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';

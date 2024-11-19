@@ -1,3 +1,4 @@
+import 'package:app_dogs/data/models/user_model.dart';
 import 'package:app_dogs/data/repositories/user_repository.dart';
 
 class UserViewmodel {
@@ -19,6 +20,17 @@ class UserViewmodel {
       if (userAlreadyExists) {
         return 'Usuario já Esta Cadastrado';
       }
+
+      final user = User(usuario: usuario, senha: senha, idPessoa: idPessoa);
+      await repository.insertUser(user);
+
+      return 'Usuario cadastrado com sucesso!';
+    } else {
+      return 'E-mail não encontrado. Procure o Adminstrador!';
     }
+  }
+
+  Future<bool> loginUser(String usuario, String senha) async {
+    return await repository.verifyLogin(usuario, senha);
   }
 }
