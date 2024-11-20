@@ -175,18 +175,16 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
                             decoration: const InputDecoration(
                               labelText: 'Email',
                               labelStyle: TextStyle(
-                                  color: Color.fromARGB(255, 25, 150, 250)),
+                                  color: Color.fromARGB(255, 0, 0, 0)),
                               border: OutlineInputBorder(),
                               focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black),
+                                borderSide: BorderSide(
+                                    color: Color.fromARGB(255, 25, 150, 250)),
                               ),
                             ),
                             validator: (value) {
                               if (value == null || value.isEmpty) {
                                 return 'Por favor entre com Email';
-                              }
-                              if (int.tryParse(value) == null) {
-                                return 'Por favor entre com um Email válido';
                               }
                               return null;
                             },
