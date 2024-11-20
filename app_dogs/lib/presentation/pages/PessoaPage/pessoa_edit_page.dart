@@ -84,7 +84,7 @@ class PessoaEditPageState extends State<PessoaEditPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Edição Pessoa'),
-        backgroundColor: Colors.teal,
+        backgroundColor: const Color.fromARGB(255, 25, 150, 250),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
@@ -106,18 +106,20 @@ class PessoaEditPageState extends State<PessoaEditPage> {
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
-                          color: Colors.teal,
+                          color: Color.fromARGB(255, 25, 150, 250),
                         ),
                       ),
                       const SizedBox(height: 20),
                       TextFormField(
                         controller: nomeController,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           labelText: 'Nome',
-                          labelStyle: TextStyle(color: Colors.teal.shade700),
-                          border: const OutlineInputBorder(),
+                          labelStyle:
+                              TextStyle(color: Color.fromARGB(255, 0, 57, 104)),
+                          border: OutlineInputBorder(),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.teal.shade700),
+                            borderSide: BorderSide(
+                                color: Color.fromARGB(255, 0, 57, 104)),
                           ),
                         ),
                         validator: (value) {
@@ -130,12 +132,14 @@ class PessoaEditPageState extends State<PessoaEditPage> {
                       const SizedBox(height: 20),
                       TextFormField(
                         controller: _telefoneController,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           labelText: 'Telefone',
-                          labelStyle: TextStyle(color: Colors.teal.shade700),
-                          border: const OutlineInputBorder(),
+                          labelStyle:
+                              TextStyle(color: Color.fromARGB(255, 0, 57, 104)),
+                          border: OutlineInputBorder(),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.teal.shade700),
+                            borderSide: BorderSide(
+                                color: Color.fromARGB(255, 0, 57, 104)),
                           ),
                         ),
                         keyboardType: TextInputType.number,
@@ -155,12 +159,14 @@ class PessoaEditPageState extends State<PessoaEditPage> {
                       const SizedBox(height: 20),
                       TextFormField(
                         controller: _emailController,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           labelText: 'Email',
-                          labelStyle: TextStyle(color: Colors.teal.shade700),
-                          border: const OutlineInputBorder(),
+                          labelStyle:
+                              TextStyle(color: Color.fromARGB(255, 0, 57, 104)),
+                          border: OutlineInputBorder(),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.teal.shade700),
+                            borderSide: BorderSide(
+                                color: Color.fromARGB(255, 0, 57, 104)),
                           ),
                         ),
                         validator: (value) {
@@ -176,12 +182,14 @@ class PessoaEditPageState extends State<PessoaEditPage> {
                       const SizedBox(height: 20),
                       TextFormField(
                         controller: _enderecoAvRuaController,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           labelText: 'Endereço',
-                          labelStyle: TextStyle(color: Colors.teal.shade700),
-                          border: const OutlineInputBorder(),
+                          labelStyle:
+                              TextStyle(color: Color.fromARGB(255, 0, 57, 104)),
+                          border: OutlineInputBorder(),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.teal.shade700),
+                            borderSide: BorderSide(
+                                color: Color.fromARGB(255, 0, 57, 104)),
                           ),
                         ),
                         validator: (value) {
@@ -197,12 +205,14 @@ class PessoaEditPageState extends State<PessoaEditPage> {
                       const SizedBox(height: 20),
                       TextFormField(
                         controller: _bairroController,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           labelText: 'Bairro',
-                          labelStyle: TextStyle(color: Colors.teal.shade700),
-                          border: const OutlineInputBorder(),
+                          labelStyle:
+                              TextStyle(color: Color.fromARGB(255, 0, 57, 104)),
+                          border: OutlineInputBorder(),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.teal.shade700),
+                            borderSide: BorderSide(
+                                color: Color.fromARGB(255, 0, 57, 104)),
                           ),
                         ),
                         keyboardType: TextInputType.number,
@@ -222,12 +232,14 @@ class PessoaEditPageState extends State<PessoaEditPage> {
                       const SizedBox(height: 20),
                       TextFormField(
                         controller: _enderecoNumeroController,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           labelText: 'Número',
-                          labelStyle: TextStyle(color: Colors.teal.shade700),
-                          border: const OutlineInputBorder(),
+                          labelStyle:
+                              TextStyle(color: Color.fromARGB(255, 0, 57, 104)),
+                          border: OutlineInputBorder(),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.teal.shade700),
+                            borderSide: BorderSide(
+                                color: Color.fromARGB(255, 0, 57, 104)),
                           ),
                         ),
                         keyboardType: TextInputType.number,
@@ -247,12 +259,14 @@ class PessoaEditPageState extends State<PessoaEditPage> {
                       const SizedBox(height: 20),
                       TextFormField(
                         controller: _enderecoCepController,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           labelText: 'CEP',
-                          labelStyle: TextStyle(color: Colors.teal.shade700),
-                          border: const OutlineInputBorder(),
+                          labelStyle:
+                              TextStyle(color: Color.fromARGB(255, 0, 57, 104)),
+                          border: OutlineInputBorder(),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.teal.shade700),
+                            borderSide: BorderSide(
+                                color: Color.fromARGB(255, 0, 57, 104)),
                           ),
                         ),
                         keyboardType: TextInputType.number,
@@ -272,12 +286,14 @@ class PessoaEditPageState extends State<PessoaEditPage> {
                       const SizedBox(height: 20),
                       TextFormField(
                         controller: _enderecoCidadeController,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           labelText: 'Cidade',
-                          labelStyle: TextStyle(color: Colors.teal.shade700),
-                          border: const OutlineInputBorder(),
+                          labelStyle:
+                              TextStyle(color: Color.fromARGB(255, 0, 57, 104)),
+                          border: OutlineInputBorder(),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.teal.shade700),
+                            borderSide: BorderSide(
+                                color: Color.fromARGB(255, 0, 57, 104)),
                           ),
                         ),
                         validator: (value) {
@@ -293,12 +309,14 @@ class PessoaEditPageState extends State<PessoaEditPage> {
                       const SizedBox(height: 20),
                       TextFormField(
                         controller: _enderecoEstadoController,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           labelText: 'Estado',
-                          labelStyle: TextStyle(color: Colors.teal.shade700),
-                          border: const OutlineInputBorder(),
+                          labelStyle:
+                              TextStyle(color: Color.fromARGB(255, 0, 57, 104)),
+                          border: OutlineInputBorder(),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.teal.shade700),
+                            borderSide: BorderSide(
+                                color: Color.fromARGB(255, 0, 57, 104)),
                           ),
                         ),
                         validator: (value) {
@@ -315,7 +333,8 @@ class PessoaEditPageState extends State<PessoaEditPage> {
                       ElevatedButton.icon(
                         onPressed: _updatePessoa,
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.teal,
+                          backgroundColor:
+                              const Color.fromARGB(255, 25, 150, 250),
                           padding: const EdgeInsets.symmetric(
                             vertical: 15.0,
                             horizontal: 30.0,

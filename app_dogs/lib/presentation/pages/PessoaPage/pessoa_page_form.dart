@@ -261,7 +261,7 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
                               border: OutlineInputBorder(),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: Color.fromARGB(255, 230, 107, 213),
+                                  color: Color.fromARGB(255, 25, 150, 250),
                                 ),
                               ),
                             ),
@@ -295,11 +295,16 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
                                 borderRadius: BorderRadius.circular(20.0),
                               ),
                             ),
-                            icon: const Icon(Icons.save, size: 24),
+                            icon: const Icon(
+                              Icons.save,
+                              size: 24,
+                              color: Color.fromARGB(255, 0, 59, 110),
+                            ),
                             label: const Text(
                               'Salvar',
-                              style: TextStyle(fontSize: 18),
-                              selectionColor: Color.fromARGB(255, 0, 0, 0),
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  color: Color.fromARGB(255, 0, 59, 110)),
                             ),
                           ),
                         ],

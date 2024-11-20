@@ -22,7 +22,7 @@ class DetailRowWidgets extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(icon, color: Colors.teal, size: 20),
+          Icon(icon, color: const Color.fromARGB(255, 0, 134, 134), size: 20),
           const SizedBox(width: 12),
           Expanded(
             child: Column(

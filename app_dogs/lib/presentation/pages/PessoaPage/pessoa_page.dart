@@ -153,7 +153,7 @@ class PessoaPageState extends State<PessoaPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _addPessoa,
-        backgroundColor: const Color.fromARGB(255, 238, 101, 208),
+        backgroundColor: const Color.fromARGB(255, 0, 255, 255),
         tooltip: 'Adicionar Pessoa',
         child: const Icon(Icons.add, size: 30),
       ),

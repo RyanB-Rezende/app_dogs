@@ -117,10 +117,16 @@ class _DogPageFormState extends State<DogPageForm> {
                               borderRadius: BorderRadius.circular(20.0),
                             ),
                           ),
-                          icon: const Icon(Icons.save, size: 24),
+                          icon: const Icon(
+                            Icons.save,
+                            size: 24,
+                            color: Color.fromARGB(255, 0, 56, 50),
+                          ),
                           label: const Text(
                             'Salvar',
-                            style: TextStyle(fontSize: 18),
+                            style: TextStyle(
+                                fontSize: 18,
+                                color: Color.fromARGB(255, 0, 56, 50)),
                           ),
                         ),
                       ],

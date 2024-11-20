@@ -133,11 +133,15 @@ class DogEditPageState extends State<DogEditPage> {
                             borderRadius: BorderRadius.circular(20.0),
                           ),
                         ),
-                        icon: const Icon(Icons.save, size: 24),
-                        label: const Text(
-                          'Salvar Alterações',
-                          style: TextStyle(fontSize: 18),
+                        icon: const Icon(
+                          Icons.save,
+                          size: 24,
+                          color: Color.fromARGB(255, 0, 56, 50),
                         ),
+                        label: const Text('Salvar Alterações',
+                            style: TextStyle(
+                                fontSize: 18,
+                                color: Color.fromARGB(255, 0, 56, 50))),
                       ),
                     ],
                   ),
